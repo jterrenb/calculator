@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+.container {
+    width: 500px;
+    display: flex;
+    background-color: #3a3a3a;
+    margin: 50px auto 0px auto;
+    padding: 25px;
+    border-radius: 25px;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.output {
+    width: 450px;
+    height: 125px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+}
+
+button {
+    width: 93.75px;
+    height: 93.75px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: rgb(219, 205, 188);
+}
+.clear,
+.zero {
+    width: 212.5px;
+}
+.clear,
+.divide,
+.multiply,
+.add,
+.substract,
+.coma,
+.equal {
+    background-color: darkgrey;
+}
+.equal {
+    background-color: grey;
+}
