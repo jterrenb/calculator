@@ -22,8 +22,11 @@ function operate (firstNum, secondNum, operator) {
 container.addEventListener("click", (event) => {
     let target = event.target;
     switch (target.className) {
+        case "zero":
+            display.textContent += "0";
+            break;
         case "one":
-            display.textContent += "1";
+                display.textContent += "1";
             break;
         case "two":
             display.textContent += "2";
