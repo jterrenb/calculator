@@ -14,11 +14,17 @@
     gap: 25px;
     flex-wrap: wrap;
 }
-.output {
+.display {
+    display: flex;
     width: 450px;
     height: 125px;
     border-radius: 12px;
     background-color: whitesmoke;
+    justify-content: end;
+    align-items: end;
+    font-size: 50px;
+    font-weight: 900;
+    padding: 5px;
 }
 
 button {
@@ -36,7 +42,7 @@ button {
 .divide,
 .multiply,
 .add,
-.substract,
+.subtract,
 .coma,
 .equal {
     background-color: darkgrey;
