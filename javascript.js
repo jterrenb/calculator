@@ -1,5 +1,4 @@
 let nums = [];
-let secondNum;
 let operator;
 let idx = 0;
 const container = document.querySelector(".container");
@@ -17,6 +16,20 @@ function divide (num, divisor) {
     return +num / +divisor;
 };
 function operate (firstNum, secondNum, operator) {
+    switch (operator) {
+        case "+":
+            display.textContent = add(firstNum, secondNum);
+            break;
+        case "-":
+            display.textContent = subtract(firstNum, secondNum);
+            break;
+        case "*":
+            display.textContent = multiply(firstNum, secondNum);
+            break;
+        case "/":
+            display.textContent = divide(firstNum, secondNum);
+            break;
+    }
 };
 
 container.addEventListener("click", (event) => {
@@ -32,19 +45,24 @@ container.addEventListener("click", (event) => {
             break;
         case "operator":
             if (operator === undefined) {
-                    operator = target.textContent;
-                    idx = 1;
+                operator = target.textContent;
+                idx = 1;
             } else {
-                switch (operator) {
-                    case "+":
-                        display.textContent = add(nums[0], nums[1]);
-                        break;
-                }
+                operate(nums[0], nums[1], operator);
+                operator = "";
+                idx = 0;
             };
             break;
         case "clear":
             nums.fill("");
+            operator = "";
             display.textContent = "";
             break;
+        case "equal":
+            if ( operator !== undefined) {
+                operate(nums[0], nums[1], operator);
+                operator = "";
+                idx = 0;
+            }
     };
 });
