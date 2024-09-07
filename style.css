@@ -35,16 +35,12 @@ button {
     background-color: rgb(219, 205, 188);
 }
 .clear,
-.zero {
+#zero {
     width: 212.5px;
 }
 .clear,
-.divide,
-.multiply,
-.add,
-.subtract,
-.coma,
-.equal {
+.operator,
+#coma {
     background-color: darkgrey;
 }
 .equal {
