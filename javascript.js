@@ -39,24 +39,32 @@ container.addEventListener("click", (event) => {
             if ( nums[idx] === undefined) {
                 nums[idx] = target.textContent;
             } else {
-                nums[idx].length < 17 ? nums[idx] += target.textContent : nums[idx];
+                nums[idx].length < 15 ? nums[idx] += target.textContent : nums[idx];
             }
             display.textContent = nums[idx];
             break;
         case "operator":
-            if (operator === undefined) {
+            target.style.backgroundColor = "lightblue";
+            if (nums[idx] === undefined) {
+                operator = "";
+                idx = 0;
+                target.style.backgroundColor = "initial";
+            } else if (operator === undefined || operator === "") {
                 operator = target.textContent;
                 idx = 1;
             } else {
                 operate(nums[0], nums[1], operator);
-                operator = "";
-                idx = 0;
+                nums.fill("");
+                operator = target.textContent;
+                nums[0] = display.textContent;
+                idx = 1;
             };
             break;
         case "clear":
             nums.fill("");
             operator = "";
             display.textContent = "";
+            idx = 0;
             break;
         case "equal":
             if ( operator !== undefined) {
