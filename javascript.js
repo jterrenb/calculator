@@ -3,6 +3,7 @@ let operator;
 let idx = 0;
 const container = document.querySelector(".container");
 let display = document.querySelector(".display");
+const btnOperator = document.querySelectorAll(".operator");
 function add ( firstNum, secondNum) {
     return +firstNum + +secondNum;
 };
@@ -31,7 +32,11 @@ function operate (firstNum, secondNum, operator) {
             break;
     }
 };
-
+function clearBground() {
+    for (let btn of btnOperator) {
+        btn.style.backgroundColor = "darkgrey";
+    };
+};
 container.addEventListener("click", (event) => {
     let target = event.target;
     switch (target.className) {
@@ -48,14 +53,16 @@ container.addEventListener("click", (event) => {
             if (nums[idx] === undefined) {
                 operator = "";
                 idx = 0;
-                target.style.backgroundColor = "initial";
+                clearBground();
             } else if (operator === undefined || operator === "") {
                 operator = target.textContent;
                 idx = 1;
             } else {
                 operate(nums[0], nums[1], operator);
                 nums.fill("");
+                clearBground();
                 operator = target.textContent;
+                target.style.backgroundColor = "lightblue";
                 nums[0] = display.textContent;
                 idx = 1;
             };
@@ -65,12 +72,15 @@ container.addEventListener("click", (event) => {
             operator = "";
             display.textContent = "";
             idx = 0;
+            clearBground();
             break;
         case "equal":
             if ( operator !== undefined) {
                 operate(nums[0], nums[1], operator);
                 operator = "";
                 idx = 0;
+                nums.fill("");
+                clearBground();
             }
     };
 });
