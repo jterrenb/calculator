@@ -17,3 +17,4 @@ PSEUDOCODE:
     - Al pulsar el botón de igual o de cualquier operador, debe realizarse la operación matemática, mostrando el resultado en el display y eliminando el fondo modificado al operador, dejando vacía tanto la variable operador como nums.
         - Si nums[1] no está definida, entonces el botón del operador vuelve a su fondo original y la variable operador vuelve a quedar vacía, volviendo el eventListener a la variable nums[0].
         - Si en vez de pulsar el botón equal, se pulsa un botón operador, una vez realizada la operación anterior, se almacena el número contenido en el display en la variable nums[0], y se almacena ese nuevo operador en la variable operator, además de cambiar el eventListener a nums[1].
+    - Si se pulsa el botón ".", se evalúa la variable en que se encuentre en uso, si ya tiene un "." en la variable, no hace nada, y si no lo hay, añade un "." al final de la variable.

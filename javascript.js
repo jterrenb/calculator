@@ -4,6 +4,8 @@ let idx = 0;
 const container = document.querySelector(".container");
 let display = document.querySelector(".display");
 const btnOperator = document.querySelectorAll(".operator");
+let stringNum;
+
 function add ( firstNum, secondNum) {
     return +firstNum + +secondNum;
 };
@@ -14,7 +16,7 @@ function multiply (num, multiplier){
     return +num * +multiplier;
 };
 function divide (num, divisor) {
-    if (num == 0 && divisor == 0) {
+    if (divisor == 0) {
         return "";
     } else {
         return +num / +divisor;
@@ -90,5 +92,13 @@ container.addEventListener("click", (event) => {
                 nums.fill("");
                 clearBground();
             }
+            break;
+        case "coma":
+            stringNum = nums[idx].toString();
+            if (stringNum.includes(".") == false && nums[idx].length > 0) {
+                nums[idx] += target.textContent;
+                display.textContent = nums[idx];
+            };
+            break;
     };
 });
