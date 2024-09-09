@@ -14,7 +14,11 @@ function multiply (num, multiplier){
     return +num * +multiplier;
 };
 function divide (num, divisor) {
-    return +num / +divisor;
+    if (num == 0 && divisor == 0) {
+        return "";
+    } else {
+        return +num / +divisor;
+    }
 };
 function operate (firstNum, secondNum, operator) {
     switch (operator) {
@@ -50,7 +54,11 @@ container.addEventListener("click", (event) => {
             break;
         case "operator":
             target.style.backgroundColor = "lightblue";
-            if (nums[idx] === undefined) {
+            if (nums[0] === "" && display.textContent !== "") {
+                nums[0] = display.textContent;
+                operator = target.textContent;
+                idx = 1;
+            } else if (nums[idx] === undefined) {
                 operator = "";
                 idx = 0;
                 clearBground();
