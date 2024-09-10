@@ -105,7 +105,6 @@ container.addEventListener("click", (event) => {
 
 document.addEventListener("keydown", (event) => {
     let keyValue = event.key;
-    console.log(keyValue);
     switch (keyValue) {
         case "0":
         case "1":
@@ -150,14 +149,8 @@ document.addEventListener("keydown", (event) => {
                 idx = 1;
             };
             break;
-        case "clear":
-            nums.fill("");
-            operator = "";
-            display.textContent = "";
-            idx = 0;
-            clearBground();
-            break;
-        case "equal":
+        case "Enter":
+        case "=":
             if ( operator !== undefined) {
                 operate(nums[0], nums[1], operator);
                 operator = "";
@@ -173,5 +166,10 @@ document.addEventListener("keydown", (event) => {
                 display.textContent = nums[idx];
             };
             break;
+        case "Backspace":
+            if (nums[idx].length > 0) {
+                nums[idx] = nums[idx].substr(0,nums[idx].length - 1 );
+                display.textContent = nums[idx];
+            }
     };
 });
